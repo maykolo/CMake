@@ -1,0 +1,17 @@
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/lib/fun1)
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/lib/fun2)
+
+#将可执行文件放到执行cmake命令的目录下新创建的bin目录下
+SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+
+#查找当前目录下的所有源文件
+#并将所有名称都存储在变量 DIR_SRCS
+AUX_SOURCE_DIRECTORY(. DIR_SRCS)
+
+#生成可执行文件
+ADD_EXECUTABLE(Mufile ${DIR_SRCS})
+
+#为生成的目标添加需要链接的共享库
+TARGET_LINK_LIBRARIES(Mufile FunO FunT)
+
+
